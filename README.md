@@ -1,7 +1,7 @@
 # Prometheus
 Prometheus quickly generates and compiles a new reverse shell PE with a hardcoded socket address.  
 
-[Usage]: ./prometheus.sh <IP> <PORT>
+[Usage]: ./prometheus.sh [IP] [PORT]
 
 [Example]:
 
