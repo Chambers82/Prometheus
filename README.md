@@ -4,7 +4,10 @@ Prometheus quickly generates and compiles a new reverse shell PE with a hardcode
 [Usage]: ./prometheus.sh <IP> <PORT>
 
 [Example]:
-----------------------------------------------------+
+
+root@kali:/opt/Prometheus# ./prometheus.sh 78.55.64.3 443
+
++----------------------------------------------------+
 |  Adversarial Informatics Weaponized C++ Rev Shell  |
 |               cygienesolutions.com                 |
 |        [Usage]: ./prometheus.sh <IP> <PORT>        |
