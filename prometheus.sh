@@ -78,5 +78,5 @@ echo -e "${NC}"
 rm rev_shell.cpp
 ls -lrt KB*
 file KB4521.exe
-
+md5sum KB4521.exe
 
